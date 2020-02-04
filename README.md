@@ -29,9 +29,7 @@ Note
 ----
 This library is not completed... yet. There might be some update some time in the future.
 
-Copyright (c) 2020, Ichwanul Fadhli, Dhimas Panjie Herlambang
-
-GitHub :
+The Developer's GitHub :
 
 Ichwanul Fadhli
 
@@ -40,3 +38,5 @@ Ichwanul Fadhli
 Dhimas Panjie Herlambang
 
 [@DhimasPH](https://github.com/DhimasPH/)
+
+Copyright (c) 2020, Ichwanul Fadhli, Dhimas Panjie Herlambang
