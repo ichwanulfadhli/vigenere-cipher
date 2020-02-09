@@ -25,18 +25,18 @@ $this->vigenere->encode('<your message>', '<your key>');
 $this->vigenere->decode('<your message>', '<your key>');
 ```
 
+The Developers
+--------------
+Ichwanul Fadhli
+
+GitHub : [@ichwanulf99](https://github.com/ichwanulf99/)
+
+Dhimas Panjie Herlambang
+
+GitHub : [@DhimasPH](https://github.com/DhimasPH/)
+
 Note
 ----
 This library is not completed... yet. There might be some update some time in the future.
 
-The Developer's GitHub :
-
-Ichwanul Fadhli
-
-[@ichwanulf99](https://github.com/ichwanulf99/)
-
-Dhimas Panjie Herlambang
-
-[@DhimasPH](https://github.com/DhimasPH/)
-
-Copyright (c) 2020, Ichwanul Fadhli, Dhimas Panjie Herlambang
+Copyright (c) 2020 Ichwanul Fadhli & Dhimas Panjie Herlambang
