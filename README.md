@@ -30,11 +30,13 @@ The Developers
 Ichwanul Fadhli
 
 GitHub    : [@ichwanulf99](https://github.com/ichwanulf99/)
+
 Instagram : [@ichwa_nf](https://www.instagram.com/ichwa_nf/)
 
 Dhimas Panjie Herlambang
 
 GitHub    : [@DhimasPH](https://github.com/DhimasPH/)
+
 Instagram : [@dhimas_herlambang](https://www.instagram.com/dhimas_herlambang/)
 
 Note
