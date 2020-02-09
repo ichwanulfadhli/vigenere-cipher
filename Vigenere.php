@@ -28,8 +28,7 @@ class Vigenere {
      * @param string $message
      * The message.
      * 
-     * Notice the message must only an alphabetic character, 
-     * and cannot contain any spaces.
+     * Notice the message must only an alphabetic character.
      * 
      * @param string $key
      * The key.
@@ -192,8 +191,7 @@ class Vigenere {
      * @param string $message
      * The message.
      * 
-     * Notice the message must only an alphabetic character, 
-     * and cannot contain any spaces.
+     * Notice the message must only an alphabetic character.
      * 
      * @param string $key
      * The key.
