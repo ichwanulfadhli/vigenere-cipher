@@ -27,13 +27,13 @@ $this->vigenere->decode('<your message>', '<your key>');
 
 The Developers
 --------------
-Ichwanul Fadhli
+**Ichwanul Fadhli**
 
 GitHub    : [@ichwanulf99](https://github.com/ichwanulf99/)
 
 Instagram : [@ichwa_nf](https://www.instagram.com/ichwa_nf/)
 
-Dhimas Panjie Herlambang
+**Dhimas Panjie Herlambang**
 
 GitHub    : [@DhimasPH](https://github.com/DhimasPH/)
 
