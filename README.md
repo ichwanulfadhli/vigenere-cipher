@@ -18,11 +18,11 @@ function __construct(){
 ```
 After that, you can simply call the function like example below :
 ```
-// For encoding the message
-$this->vigenere->encode('<your message>', '<your key>');
+// For encrypting the message
+$this->vigenere->encrypt('<your message>', '<your key>');
 
-// For decoding the message
-$this->vigenere->decode('<your message>', '<your key>');
+// For decrypting the message
+$this->vigenere->decrypt('<your message>', '<your key>');
 ```
 
 The Developers
@@ -41,6 +41,6 @@ Instagram : [@dhimas_herlambang](https://www.instagram.com/dhimas_herlambang/)
 
 Note
 ----
-This library is not completed... yet. There might be some update some time in the future.
+There might be some update some time in the future.
 
 Copyright (c) 2020 Ichwanul Fadhli & Dhimas Panjie Herlambang
