@@ -20,9 +20,9 @@ class Vigenere {
 		'u', 'v', 'w', 'x', 'y', 'z'
     );
 
-    /** Vigenère Encode
+    /** Vigenère Encrypt
      * 
-     * The encode function which turns the plaintext message to the 
+     * The encrypt function which turns the plaintext message to the 
      * secret message.
      * 
      * @param string $message
@@ -39,7 +39,7 @@ class Vigenere {
      * @return $output
      * 
      */
-     public function encode($message, $key){
+    public function encrypt($message, $key){
         // Output variable defined as empty.
         $output = '';
         // Encrypted variable defined as empty.
@@ -49,19 +49,15 @@ class Vigenere {
         // The length of the key.
         $keySize = strlen($key);
 
-        // If the message contains whitespaces, then 
-        // it will follow the first procedure.
-        if(strpos($message, ' ')){
-            // Erasing the whitespaces from the message.
-            $editedMessage = str_replace(' ', '', $message);
+        // Detecting if the message contains 
+        // a non-aplhabetic characters.
+        if(preg_match('/[a-z0-9\W\s_]/', $message)){
+            // Replacing those non-alphabetic characters with ''.
+            $editedMessage = preg_replace("/[0-9\W\s_]/", '', $message);
 
-            // Splitting the message into a several pieces
-            // with whitespace as a seperator.
-            $messageChunk = explode(' ', $message);
-            
-            // The previous length is modified with the new one.
+            // The length of the edited message.
             $messageSize = strlen($editedMessage);
-            
+
             // Looping to do the encipher based on how long of the message is.
             for($i = 0; $i < $messageSize; $i++){
                 // If the value of $i is equal to the length of the key or greater, 
@@ -109,83 +105,37 @@ class Vigenere {
                     $encrypted .= self::$alphabet[$c];
                 }
             }
-            // Counter for the position of the encrypted message.
-            $o = 0;
+        }
 
-            // This loop has a purpose to reconstruct the encrypted message based on 
-            // how many words which has been seperated from the whitespaces.
-            for($j = 0; $j < count($messageChunk); $j++){
-                for($k = 0; $k < strlen($messageChunk[$j]); $k++){
-                    // Reconstructing the output.
-                    $output .= $encrypted[$o];
-                    // Adding the counter to 1.
-                    $o += 1;
-                }
-                // Adding the spaces.
-                $output .= ' ';
+        // Counter for the position of the encrypted message.
+        $k = 0;
+
+        // This loop has a purpose to reconstruct the encrypted message based on
+        // the length of the messsage itself.
+        for($j = 0; $j < strlen($message); $j++){
+            // If the message on index $j is an alphabetic, then it will return
+            // the encrypted message on position $k.
+            if(ctype_alpha($message[$j])){
+                // Appending the output.
+                $output .= $encrypted[$k];
+
+                // Adding the position counter.
+                $k += 1;
+            }
+            // Otherwise, it will return the original message on index $j.
+            else{
+                // Appending the output.
+                $output .= $message[($j)];
             }
         }
-        // If not, then it will follow the second procedure.
-        else{
-            // The length of the modified message.
-            $messageSize = strlen($message);
-            
-            // Looping to do the encipher based on how long of the message is.
-            for($i = 0; $i < $messageSize; $i++){
-                // If the value of $i is equal to the length of the key or greater, 
-                // then the key will be reset to the beginning.
-                if($i == $keySize || $i > $keySize){
-                    // This variable will contain the shifting index for the key.
-                    $a = $i % $keySize;
 
-                    // $x is the vigenère cipher calculation.
-                    // the "array_search()" is a process to get
-                    // the alphabet number.
-                    $x = (int)array_search($message[$i], self::$alphabet) + array_search($key[$a], self::$alphabet);
-                    // The length of the alphabet which is 26.
-                    $y = 26;
-
-                    // The final process of the calculation.
-                    $c = fmod($x, $y);
-
-                    // If the result from modulo is smaller than 0, then $c will be 
-                    // added with $y where $y is an absolute (positive) value.
-                    if($c < 0){
-                        $c += abs($y);
-                    }
-                }
-                else{
-                    // $x is the vigenère cipher calculation.
-                    // the "array_search()" is a process to get
-                    // the alphabet number.
-                    $x = (int)array_search($message[$i], self::$alphabet) + array_search($key[$i], self::$alphabet);
-                    // The length of the alphabet which is 26.
-                    $y = 26;
-
-                    // The final process of the calculation.
-                    $c = fmod($x, $y);
-
-                    // If the result from modulo is smaller than 0, then $c will be 
-                    // added with $y where $y is an absolute (positive) value.
-                    if($c < 0){
-                        $c += abs($y);
-                    }
-                }
-                
-                // Checking if the value is exist on the alphabet lookup.
-                if(isset(self::$alphabet[$c])){
-                    $output .= self::$alphabet[$c];
-                }
-            }
-        }
-        
-        // Returning the result.
+        // return $output;
         return $output;
     }
 
-    /** Vigenère Decode
+    /** Vigenère decrypt
      * 
-     * The encode function which turns the encoded message to the 
+     * The decrypt function which turns the encryptd message to the 
      * plaintext message.
      * 
      * @param string $message
@@ -202,29 +152,25 @@ class Vigenere {
      * @return $output
      * 
      */
-    public function decode($message, $key){
+    public function decrypt($message, $key){
         // Output variable defined as empty.
         $output = '';
-        // Encrypted variable defined as empty.
-        $encrypted = '';
+        // Decrypted variable defined as empty.
+        $decrypted = '';
         // The length of the original message.
         $messageSize = strlen($message);
         // The length of the key.
         $keySize = strlen($key);
 
-        // If the message contains whitespaces, then 
-        // it will follow the first procedure.
-        if(strpos($message, ' ')){
-            // Erasing the whitespaces from the message.
-            $editedMessage = str_replace(' ', '', $message);
+        // Detecting if the message contains 
+        // a non-aplhabetic characters.
+        if(preg_match('/[a-z0-9\W\s_]/', $message)){
+            // Replacing those non-alphabetic characters with ''.
+            $editedMessage = preg_replace("/[0-9\W\s_]/", '', $message);
 
-            // Splitting the message into a several pieces
-            // with whitespace as a seperator.
-            $messageChunk = explode(' ', $message);
-            
-            // The previous length is modified with the new one.
+            // The length of the edited message.
             $messageSize = strlen($editedMessage);
-            
+
             // Looping to do the encipher based on how long of the message is.
             for($i = 0; $i < $messageSize; $i++){
                 // If the value of $i is equal to the length of the key or greater, 
@@ -269,81 +215,35 @@ class Vigenere {
                 
                 // Checking if the value is exist on the alphabet lookup.
                 if(isset(self::$alphabet[$c])){
-                    $encrypted .= self::$alphabet[$c];
-                }
-            }
-            // Counter for the position of the encrypted message.
-            $o = 0;
-
-            // This loop has a purpose to reconstruct the encrypted message based on 
-            // how many words which has been seperated from the whitespaces.
-            for($j = 0; $j < count($messageChunk); $j++){
-                for($k = 0; $k < strlen($messageChunk[$j]); $k++){
-                    // Reconstructing the output.
-                    $output .= $encrypted[$o];
-                    // Adding the counter to 1.
-                    $o += 1;
-                }
-                // Adding the spaces.
-                $output .= ' ';
-            }
-        }
-        // If not, then it will follow the second procedure.
-        else{
-            // The length of the modified message.
-            $messageSize = strlen($message);
-            
-            // Looping to do the encipher based on how long of the message is.
-            for($i = 0; $i < $messageSize; $i++){
-                // If the value of $i is equal to the length of the key or greater, 
-                // then the key will be reset to the beginning.
-                if($i == $keySize || $i > $keySize){
-                    // This variable will contain the shifting index for the key.
-                    $a = $i % $keySize;
-
-                    // $x is the vigenère cipher calculation.
-                    // the "array_search()" is a process to get
-                    // the alphabet number.
-                    $x = (int)array_search($message[$i], self::$alphabet) - array_search($key[$a], self::$alphabet);
-                    // The length of the alphabet which is 26.
-                    $y = 26;
-
-                    // The final process of the calculation.
-                    $c = fmod($x, $y);
-
-                    // If the result from modulo is smaller than 0, then $c will be 
-                    // added with $y where $y is an absolute (positive) value.
-                    if($c < 0){
-                        $c += abs($y);
-                    }
-                }
-                else{
-                    // $x is the vigenère cipher calculation.
-                    // the "array_search()" is a process to get
-                    // the alphabet number.
-                    $x = (int)array_search($message[$i], self::$alphabet) - array_search($key[$i], self::$alphabet);
-                    // The length of the alphabet which is 26.
-                    $y = 26;
-
-                    // The final process of the calculation.
-                    $c = fmod($x, $y);
-
-                    // If the result from modulo is smaller than 0, then $c will be 
-                    // added with $y where $y is an absolute (positive) value.
-                    if($c < 0){
-                        $c += abs($y);
-                    }
-                }
-                
-                // Checking if the value is exist on the alphabet lookup.
-                if(isset(self::$alphabet[$c])){
-                    $output .= self::$alphabet[$c];
+                    $decrypted .= self::$alphabet[$c];
                 }
             }
         }
-        
-        // Returning the result.
+
+        // Counter for the position of the decrypted message.
+        $k = 0;
+
+        // This loop has a purpose to reconstruct the decrypted message based on
+        // the length of the messsage itself.
+        for($j = 0; $j < strlen($message); $j++){
+            // If the message on index $j is an alphabetic, then it will return
+            // the decrypted message on position $k.
+            if(ctype_alpha($message[$j])){
+                // Appending the output.
+                $output .= $decrypted[$k];
+
+                // Adding the position counter.
+                $k += 1;
+            }
+            // Otherwise, it will return the original message on index $j.
+            else{
+                // Appending the output.
+                $output .= $message[($j)];
+            }
+        }
+
+        // return $output;
         return $output;
     }
-    
+
 }
