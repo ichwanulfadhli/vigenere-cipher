@@ -70,8 +70,9 @@ class Vigenere {
             // Detecting if the message contains 
             // a non-aplhabetic characters.
             if(preg_match('/[a-z0-9\W\s_]/', $message)){
-                // Replacing those non-alphabetic characters with ''.
-                $editedMessage = preg_replace("/[0-9\W\s_]/", '', $message);
+                // Replacing those non-alphabetic characters with '', and converting the message
+                // to the lowercase letter.
+                $editedMessage = strtolower(preg_replace("/[0-9\W\s_]/", '', $message));
     
                 // The length of the edited message.
                 $messageSize = strlen($editedMessage);
@@ -134,11 +135,23 @@ class Vigenere {
                 // If the message on index $j is an alphabetic, then it will return
                 // the encrypted message on position $k.
                 if(ctype_alpha($message[$j])){
-                    // Appending the output.
-                    $output .= $encrypted[$k];
-    
-                    // Adding the position counter.
-                    $k += 1;
+                    // If the letter on message index $j is an uppercase letter,
+                    // then the output will be converted from lower case to uppercase.
+                    if(ctype_upper($message[$j])){
+                        // Appending the output.
+                        $output .= strtoupper($encrypted[$k]);
+        
+                        // Adding the position counter.
+                        $k += 1;
+                    }
+                    // Else, just append the encrypted message to the output.
+                    else{
+                        // Appending the output.
+                        $output .= $encrypted[$k];
+        
+                        // Adding the position counter.
+                        $k += 1;
+                    }
                 }
                 // Otherwise, it will return the original message on index $j.
                 else{
@@ -154,13 +167,11 @@ class Vigenere {
 
     /** Vigenère decrypt
      * 
-     * The decrypt function which turns the encryptd message to the 
+     * The decrypt function which turns the encrypted message to the 
      * plaintext message.
      * 
      * @param string $message
      * The message.
-     * 
-     * Notice the message must only an alphabetic character.
      * 
      * @param string $key
      * The key.
@@ -204,8 +215,9 @@ class Vigenere {
             // Detecting if the message contains 
             // a non-aplhabetic characters.
             if(preg_match('/[a-z0-9\W\s_]/', $message)){
-                // Replacing those non-alphabetic characters with ''.
-                $editedMessage = preg_replace("/[0-9\W\s_]/", '', $message);
+                // Replacing those non-alphabetic characters with '', and converting the message
+                // to the lowercase letter.
+                $editedMessage = strtolower(preg_replace("/[0-9\W\s_]/", '', $message));
     
                 // The length of the edited message.
                 $messageSize = strlen($editedMessage);
@@ -268,11 +280,23 @@ class Vigenere {
                 // If the message on index $j is an alphabetic, then it will return
                 // the decrypted message on position $k.
                 if(ctype_alpha($message[$j])){
-                    // Appending the output.
-                    $output .= $decrypted[$k];
-    
-                    // Adding the position counter.
-                    $k += 1;
+                    // If the letter on message index $j is an uppercase letter,
+                    // then the output will be converted from lower case to uppercase.
+                    if(ctype_upper($message[$j])){
+                        // Appending the output.
+                        $output .= strtoupper($decrypted[$k]);
+        
+                        // Adding the position counter.
+                        $k += 1;
+                    }
+                    // Else, just append the decrypted message to the output.
+                    else{
+                        // Appending the output.
+                        $output .= $decrypted[$k];
+        
+                        // Adding the position counter.
+                        $k += 1;
+                    }
                 }
                 // Otherwise, it will return the original message on index $j.
                 else{
