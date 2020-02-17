@@ -41,6 +41,6 @@ Instagram : [@dhimas_herlambang](https://www.instagram.com/dhimas_herlambang/)
 
 Note
 ----
-There might be some update some time in the future.
+There might be some update for the improvement some time in the future.
 
 Copyright (c) 2020 Ichwanul Fadhli & Dhimas Panjie Herlambang
