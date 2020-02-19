@@ -7,13 +7,15 @@ Vigenère Cipher is a plain-text form of encryption that uses alphabetical subst
 
 Plaintext = BLUE SKY
 
-Ke = SKY
+Key = SKY
 
 Shifting Process :
 
 B   L   U   E   S   K   Y
 
 S   K   Y   S   K   Y   S
+
+The Result = TVSW CIQ
 
 Here's the illustration.
 
