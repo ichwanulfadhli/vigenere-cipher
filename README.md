@@ -3,9 +3,23 @@ A Vigenere Cipher library for CodeIgniter
 
 Intro
 =====
-Vigenère Cipher is a plain-text form of encryption that uses alphabetical substitution to encrypt text. The Vigenère Cipher uses something called a "*Tabula Recta*", a grid of alphabetic characters where you can shift lines for alphabetic substitution. **The shifting process is done according to a repeating keyword** which serves to make the encryption more complex and more difficult to decrypt.
+Vigenère Cipher is a plain-text form of encryption that uses alphabetical substitution to encrypt text. The Vigenère Cipher uses something called a "*Tabula Recta*", a grid of alphabetic characters where you can shift lines for alphabetic substitution. **The shifting process is done according to a repeating keyword** which serves to make the encryption more complex and more difficult to decrypt. For instance :
 
-![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Vigen%C3%A8re_square_shading.svg/500px-Vigen%C3%A8re_square_shading.svg.png "Tabula Recta")
+Plaintext = BLUE SKY
+
+Ke = SKY
+
+Shifting Process :
+
+B   L   U   E   S   K   Y
+
+S   K   Y   S   K   Y   S
+
+Here's the illustration.
+
+![](https://media.giphy.com/media/jOVoVsBNlwdJr6Y0zX/giphy.gif "Vigenère Cipher Key Shifting")
+
+**Notice : The top section of the grid is for the message, while the left section is for the key.*
 
 Installation
 ============
