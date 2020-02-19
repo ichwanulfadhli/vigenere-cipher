@@ -88,7 +88,7 @@ class Vigenere {
                         // $x is the vigenère cipher calculation.
                         // the "array_search()" is a process to get
                         // the alphabet number.
-                        $x = (int)array_search($editedMessage[$i], self::$alphabet) + array_search($key[$a], self::$alphabet);
+                        $x = (int)array_search($editedMessage[$i], self::$alphabet) + array_search(strtolower($key[$a]), self::$alphabet);
                         // The length of the alphabet which is 26.
                         $y = 26;
     
@@ -105,7 +105,7 @@ class Vigenere {
                         // $x is the vigenère cipher calculation.
                         // the "array_search()" is a process to get
                         // the alphabet number.
-                        $x = (int)array_search($editedMessage[$i], self::$alphabet) + array_search($key[$i], self::$alphabet);
+                        $x = (int)array_search($editedMessage[$i], self::$alphabet) + array_search(strtolower($key[$i]), self::$alphabet);
                         // The length of the alphabet which is 26.
                         $y = 26;
     
@@ -233,7 +233,7 @@ class Vigenere {
                         // $x is the vigenère cipher calculation.
                         // the "array_search()" is a process to get
                         // the alphabet number.
-                        $x = (int)array_search($editedMessage[$i], self::$alphabet) - array_search($key[$a], self::$alphabet);
+                        $x = (int)array_search($editedMessage[$i], self::$alphabet) - array_search(strtolower($key[$a]), self::$alphabet);
                         // The length of the alphabet which is 26.
                         $y = 26;
     
@@ -250,7 +250,7 @@ class Vigenere {
                         // $x is the vigenère cipher calculation.
                         // the "array_search()" is a process to get
                         // the alphabet number.
-                        $x = (int)array_search($editedMessage[$i], self::$alphabet) - array_search($key[$i], self::$alphabet);
+                        $x = (int)array_search($editedMessage[$i], self::$alphabet) - array_search(strtolower($key[$i]), self::$alphabet);
                         // The length of the alphabet which is 26.
                         $y = 26;
     
