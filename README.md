@@ -47,7 +47,7 @@ The Developers
 --------------
 **Ichwanul Fadhli**
 
-GitHub    : [@ichwanulf99](https://github.com/ichwanulf99/)
+GitHub    : [@ichwanulfadhli](https://github.com/ichwanulfadhli/)
 
 Instagram : [@ichwa_nf](https://www.instagram.com/ichwa_nf/)
 
