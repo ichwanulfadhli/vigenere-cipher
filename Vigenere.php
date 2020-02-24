@@ -22,7 +22,7 @@ class Vigenere {
 
     /** Vigenère Encrypt
      * 
-     * The encrypt function which turns the plaintext message to the 
+     * The encrypt function which turns a plaintext message to a 
      * secret message.
      * 
      * @param string $message
@@ -41,7 +41,7 @@ class Vigenere {
         // Bunch of errors handling.
         //
         // If the key is empty, then it will throw an error.
-        if(empty($key) || $key == NULL){
+        if(empty($key) || $key === NULL){
             throw new Error('The key cannot be empty!');
         }
         // If the length of the key is less than 2, then it will throw an error.
@@ -130,13 +130,13 @@ class Vigenere {
             $k = 0;
     
             // This loop has a purpose to reconstruct the encrypted message based on
-            // the length of the messsage itself.
+            // the length of the original messsage itself.
             for($j = 0; $j < strlen($message); $j++){
                 // If the message on index $j is an alphabetic, then it will return
                 // the encrypted message on position $k.
                 if(ctype_alpha($message[$j])){
                     // If the letter on message index $j is an uppercase letter,
-                    // then the output will be converted from lower case to uppercase.
+                    // then the output will be converted from lowercase to uppercase.
                     if(ctype_upper($message[$j])){
                         // Appending the output.
                         $output .= strtoupper($encrypted[$k]);
@@ -167,7 +167,7 @@ class Vigenere {
 
     /** Vigenère decrypt
      * 
-     * The decrypt function which turns the encrypted message to the 
+     * The decrypt function which turns an encrypted message to a 
      * plaintext message.
      * 
      * @param string $message
@@ -186,7 +186,7 @@ class Vigenere {
         // Bunch of errors handling.
         //
         // If the key is empty, then it will throw an error.
-        if(empty($key) || $key == NULL){
+        if(empty($key) || $key === NULL){
             throw new Error('The key cannot be empty!');
         }
         // If the length of the key is less than 2, then it will throw an error.
@@ -222,7 +222,7 @@ class Vigenere {
                 // The length of the edited message.
                 $messageSize = strlen($editedMessage);
     
-                // Looping to do the encipher based on how long of the message is.
+                // Looping to do the decipher based on how long of the message is.
                 for($i = 0; $i < $messageSize; $i++){
                     // If the value of $i is equal to the length of the key or greater, 
                     // then the key will be reset to the beginning.
@@ -275,13 +275,13 @@ class Vigenere {
             $k = 0;
     
             // This loop has a purpose to reconstruct the decrypted message based on
-            // the length of the messsage itself.
+            // the length of the original messsage itself.
             for($j = 0; $j < strlen($message); $j++){
                 // If the message on index $j is an alphabetic, then it will return
                 // the decrypted message on position $k.
                 if(ctype_alpha($message[$j])){
                     // If the letter on message index $j is an uppercase letter,
-                    // then the output will be converted from lower case to uppercase.
+                    // then the output will be converted from lowercase to uppercase.
                     if(ctype_upper($message[$j])){
                         // Appending the output.
                         $output .= strtoupper($decrypted[$k]);
