@@ -49,7 +49,7 @@ The Developers
 
 GitHub    : [@ichwanulfadhli](https://github.com/ichwanulfadhli/)
 
-Instagram : [@ichwa_nf](https://www.instagram.com/ichwa_nf/)
+Instagram : [@ichwanulfadh.li](https://www.instagram.com/ichwanulfadh.li/)
 
 **Dhimas Panjie Herlambang**
 
